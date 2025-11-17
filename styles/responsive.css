@@ -1,0 +1,159 @@
+/* responsive.css */
+@media (max-width:1200px) {
+
+    nav h1,
+    .navbar h1 {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+    }
+
+    footer,
+    footer p,
+    footer a {
+        font-size: 1.2rem;
+    }
+
+    main h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:992px) {
+    .logo-link {
+        top: 0.5rem;
+        left: 0.5rem;
+        width: 44px;
+    }
+
+    nav h1,
+    .navbar h1 {
+        padding: 0.5rem;
+    }
+
+    footer,
+    footer p,
+    footer a {
+        font-size: 1rem;
+    }
+
+    .nav-links,
+    .navbar-nav {
+        padding: 0.5rem;
+    }
+
+    main h2 {
+        font-size: 1.2rem;
+    }
+
+    main a {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+}
+
+@media (max-width:768px) {
+
+    nav,
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+
+    nav h1,
+    .navbar h1 {
+        font-size: 1rem;
+        margin-left: 0;
+        padding: 0.3rem 0.2rem;
+    }
+
+    footer,
+    footer p,
+    footer a {
+        font-size: 0.8rem;
+    }
+
+    .nav-links,
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .nav-links.active a,
+    .navbar-nav.active a {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+
+    main {
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width:576px) {
+    .logo-link {
+        width: 36px;
+    }
+
+    nav h1,
+    .navbar h1 {
+        font-size: 0.8rem;
+        padding: 0.15rem;
+    }
+
+    footer,
+    footer p,
+    footer a {
+        font-size: 0.8rem;
+    }
+
+    main h2 {
+        font-size: 1rem;
+        font-weight: 600 !important;
+    }
+
+    main a {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+
+    .story-paragraph {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.5rem;
+    }
+
+    alert-info link a {
+        font-size: 0.7rem !important;
+        word-break: break-all;
+        display: inline-block;
+        max-width: 100%;
+    }
+}
+
+@media (max-width:992px) {
+    .mb-4 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media (min-width:768px) {
+    .article-info {
+        padding: 2rem;
+        min-height: 350px;
+    }
+}
+
+@media (max-width:480px) {
+    .navbar-motto span {
+        font-size: 0.5rem !important;
+    }
+}
+
+@media (max-width:768px) {
+    .navbar-motto span {
+        font-size: 0.7rem !important;
+    }
+}
