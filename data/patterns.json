@@ -1,0 +1,138 @@
+
+[
+    {
+      "id": "pattern1",
+      "name": "Daisy Delight",
+      "image": "images/thumb1.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Charming daisies and leaves.",
+      "pricePerSquareInch": 0.02
+    },
+    {
+      "id": "pattern2",
+      "name": "Ode to Antique Rosettes",
+      "image": "images/thumb2.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Classic vintage rosettes.",
+      "pricePerSquareInch": 0.02
+    },
+    {
+      "id": "pattern3",
+      "name": "Rhombus and Triangles",
+      "image": "images/thumb3.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Modern rhombus and triangles.",
+      "pricePerSquareInch": 0.015
+    },
+    {
+      "id": "pattern4",
+      "name": "Highway Lines",
+      "image": "images/thumb4.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Straight, highway-inspired lines.",
+      "pricePerSquareInch": 0.025
+    },
+    {
+      "id": "pattern5",
+      "name": "Heartfelt",
+      "image": "images/thumb5.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Scattered hearts.",
+      "pricePerSquareInch": 0.03
+    },
+    {
+      "id": "pattern6",
+      "name": "Not A Paisley",
+      "image": "images/thumb6.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Modern paisley shapes.",
+      "pricePerSquareInch": 0.02
+    },
+    {
+      "id": "pattern7",
+      "name": "Swirly Gig",
+      "image": "images/thumb7.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Whimsical swirls and shells.",
+      "pricePerSquareInch": 0.04
+    },
+    {
+      "id": "pattern8",
+      "name": "Linear Leaves",
+      "image": "images/thumb8.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Simple repeated leaves.",
+      "pricePerSquareInch": 0.015
+    },
+    {
+      "id": "pattern9",
+      "name": "Bunny Hop",
+      "image": "images/thumb9.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Playful bunnies.",
+      "pricePerSquareInch": 0.02
+    },
+    {
+      "id": "pattern10",
+      "name": "Retro-spective",
+      "image": "images/thumb10.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Retro lines and circles.",
+      "pricePerSquareInch": 0.024
+    },
+    {
+      "id": "pattern11",
+      "name": "Ponytail Silhouette",
+      "image": "images/thumb11.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Girl's ponytail silhouette.",
+      "pricePerSquareInch": 0.032
+    },
+    {
+      "id": "pattern12",
+      "name": "Cartoon Clouds",
+      "image": "images/thumb12.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Whimsical clouds.",
+      "pricePerSquareInch": 0.028
+    },
+    {
+      "id": "pattern13",
+      "name": "Butterfly Essence",
+      "image": "images/thumb13.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Elegant butterfly shapes.",
+      "pricePerSquareInch": 0.037
+    },
+    {
+      "id": "pattern14",
+      "name": "I Heart Vintage",
+      "image": "images/thumb14.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Vintage hearts.",
+      "pricePerSquareInch": 0.032
+    },
+    {
+      "id": "pattern15",
+      "name": "Busy Vintage",
+      "image": "images/thumb15.webp",
+      "imageWidth": 44,
+      "imageHeight": 44,
+      "description": "Intricate vintage design.",
+      "pricePerSquareInch": 0.022
+    }
+  ]

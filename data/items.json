@@ -1,0 +1,299 @@
+[           
+    {
+        "id": "item1",
+        "name": "Example Queen Size",
+        "image": "images/zywf.webp",
+        "description": "From start to finish, most any Queen sized quilt made to order. Approximately...",
+        "price": 1200.00,
+        "category": "Bedspread",
+        "sold": false
+    },
+    {
+        "id": "item2",
+        "name": "Example Twin Size",
+        "image": "images/z11.webp",
+        "description": "Tailored twin bed quilt of 51x79 inches for full coverage. Approximately...",
+        "price": 410.00,
+        "category": "Bedspread",
+        "sold": false
+    },
+    {
+        "id": "item3",
+        "name": "Example King Size",
+        "image": "images/zoo.webp",
+        "description": "King-sized quilt, 120x116 inches will provide generous overhang. Approximately...",
+        "price": 1700.00,
+        "category": "Bedspread",
+        "sold": false
+    },
+    {
+        "id": "item4",
+        "name": "Example Crib Size",
+        "image": "images/zbaby.webp",
+        "description": "Design with comfort in mind, measures 36x53 inches, perfect standard crib.",
+        "price": 170.00,
+        "category": "Bedspread",
+        "sold": false
+    },
+    {
+        "id": "item5",
+        "name": "Trucks",
+        "image": "images/1st.webp",
+        "description": "Receiving blanket, stitched with 'Trucks' 35x35 inches.",
+        "price": 29.00,
+        "category": "Receiving Blanket",
+        "sold": false
+    },
+    {
+        "id": "item6",
+        "name": "Purple Kaffe Fasett",
+        "image": "images/2nd.webp",
+        "description": "Freehand and stippled throw 66x78 inches.",
+        "price": 412.00,
+        "category": "Throw",
+        "sold": false
+    },
+    {
+        "id": "item7",
+        "name": "Ever-So-Cozy Pastel",
+        "image": "images/3rd.webp",
+        "description": "Quilted panel baby blanket 28x37 inches.",
+        "price": 79.00,
+        "category": "Crib Quilt",
+        "sold": false
+    },
+    {
+        "id": "item8",
+        "name": "Gorgeous Scrappy",
+        "image": "images/4th.webp",
+        "description": "Quilted throw, stitched with 'Hot Cocoa' 58x70 inches.",
+        "price": 325.00,
+        "category": "Throw",
+        "sold": false
+    },
+    {
+        "id": "item9",
+        "name": "Stripe Nature Print",
+        "image": "images/5th.webp",
+        "description": "Minky backed, stitched with 'Fat Stipple' 52x67 inches.",
+        "price": 279.00,
+        "category": "Throw",
+        "sold": false
+    },
+    {
+        "id": "item10",
+        "name": "Ducks & Soap",
+        "image": "images/6th.webp",
+        "description": "Soft & cozy receiving blanket, stitched with 'Ducks' 35x35 inches.",
+        "price": 29.00,
+        "category": "Receiving Blanket",
+        "sold": false
+    },
+    {
+        "id": "item11",
+        "name": "Blue Border",
+        "image": "images/7th.webp",
+        "description": "Super cuddly and perfectly warm 56x46 inches.",
+        "price": 179.00,
+        "category": "Throw",
+        "sold": false
+    },
+    {
+        "id": "item12",
+        "name": "Twisted Love",
+        "image": "images/8th.webp",
+        "description": "A touch of steampunk stitched with 'Double Heart' 43x61 inches.",
+        "price": 199.00,
+        "category": "Throw",
+        "sold": false
+    },
+    {
+        "id": "item13",
+        "name": "Receiving Blanket",
+        "image": "images/9th.webp",
+        "description": "Receiving blanket, stitched with 'Trucks'35x35 inches.",
+        "price": 29.00,
+        "category": "Receiving Blanket",
+        "sold": false
+    },
+    {
+        "id": "item14",
+        "name": "Scrappy 9 Patch",
+        "image": "images/10th.webp",
+        "description": "Handmade quilt stitched with 'Fat Paisley' 59x73 inches.",
+        "price": 345.00,
+        "category": "Blanket",
+        "sold": false
+    },
+    {
+        "id": "item15",
+        "name": "Star of David",
+        "image": "images/zstar.webp",
+        "description": "Handmade heirloom quilt 66x71 inches.",
+        "price": 469.00,
+        "category": "Bedspread",
+        "sold": false
+    },
+    {
+        "id": "item16",
+        "name": "Daily News",
+        "image": "images/15newspaper.webp",
+        "description": "Stitched with 'Curly Cue' 47x68 inches.",
+        "price": 379.00,
+        "category": "Throw",
+        "sold": false
+    },
+    {
+        "id": "item17",
+        "name": "Let's Snuggle",
+        "image": "images/blue.webp",
+        "description": "Large quilted blanket 68x68 inches.",
+        "price": 359.00,
+        "category": "Blanket",
+        "sold": false
+    },
+    {
+        "id": "item18",
+        "name": "Makeup Bag",
+        "image": "images/xchse89f.webp",
+        "description": "Protective quilted sleeve for makeup",
+        "price": 27.00,
+        "category": "Novelty",
+        "sold": false
+    },
+    {
+        "id": "item19",
+        "name": "Love Chocolate",
+        "image": "images/vq9.webp",
+        "description": "Chocolate themed quilted table runner.",
+        "price": 56.99,
+        "category": "Table Runner",
+        "sold": false
+    },    
+    {
+        "id": "item20",
+        "name": "Santa Tapestry",
+        "image": "images/santa.webp",
+        "description": "Festive hand quilted Christmas tapestry.",
+        "price": 56.99,
+        "category": "Tapestry",
+        "sold": false
+    },
+    {
+        "id": "item21",
+        "name": "Purple Poppies",
+        "image": "images/11111.webp",
+        "description": "Quilted panel blanket.",
+        "price": 159.00,
+        "category": "Blanket",
+        "sold": false
+    },
+    {
+        "id": "item22",
+        "name": "ABC Baby Blanket",
+        "image": "images/2632.jpg",
+        "description": "Colorful ABC quilted:32x32 inches.",
+        "price": 129.00,
+        "category": "Baby Blanket",
+        "sold": true
+    },
+    {
+        "id": "item23",
+        "name": "Halloween Color Quilt",
+        "image": "images/5353.jpg",
+        "description": "Colorful Halloween quilt:55.5x73 inches.",
+        "price": 129.00,
+        "category": "Quilt",
+        "sold": true
+    },
+    {
+        "id": "item24",
+        "name": "ABC Baby Blanket",
+        "image": "images/2632.jpg",
+        "description": "Colorful ABC quilted baby blanket :32x32 inches.",
+        "price": 129,
+        "category": "Baby Blanket",
+        "sold": true
+    },
+    {
+        "id": "item25",
+        "name": "Ducks & Soap",
+        "image": "images/3080.jpg",
+        "description": "En point peach and green 9 block: 57x91 inches.",
+        "price": 195.00,
+        "category": "Quilt",
+        "sold": false
+    },
+    {
+        "id": "item26",
+        "name": "Elegant Quilted Blanket",
+        "image": "images/unknown.jpeg",
+        "description": "Elegant quilted blanket.",
+        "price": 0.00,
+        "category": "Quilt",
+        "sold": false
+    },    
+    {
+        "id": "item27",
+        "name": "For Your Veteran!",
+        "image": "images/z27m.webp",
+        "description": "Patriotic quilt",
+        "price": 0.00,
+        "category": "Blanket",
+        "sold": true
+    },
+    {
+        "id": "item27",
+        "name": "Quilted blanket",
+        "image": "images/thumb7.webp",
+        "description": "Colorful quilted blanket",
+        "price": 0.00,
+        "category": "Blanket",
+        "sold": true
+    },
+    {
+        "id": "item28",
+        "name": "Wall Hanging",
+        "image": "images/lucky.webp",
+        "description": "Decorative St. Patricks Day wall hanging.",
+        "price": 0.00,
+        "category": "Wall Hanging",
+        "sold": true
+    },
+    {
+        "id": "item29",
+        "name": "Cherry Twin Quilt",
+        "image": "images/cherries.webp",
+        "description": "For the love of cherries! Quilted blanket.",
+        "price": 0.00,
+        "category": "Blanket",
+        "sold": true
+    },
+    {
+        "id": "item30",
+        "name": "Cherry Summer Picnic Blanket",
+        "image": "images/picnik.webp",
+        "description": "Small quilt, perfect size for a picnic!",
+        "price": 0.00,
+        "category": "Blanket",
+        "sold": true
+    },    
+    {
+        "id": "item31",
+        "name": "Hashtag Fun",
+        "image": "images/ztag.webp",
+        "description": "Quilted Hashtags is what this blanket is about.",
+        "price": 0.00,
+        "category": "Blanket",
+        "sold": true
+    },
+    {
+        "id": "item32",
+        "name": "Red, White & Black",
+        "image": "images/red.webp",
+        "description": "Solid hand crafted twin beadspread",
+        "price": 0.00,
+        "category": "Blanket",
+        "sold": true
+    }
+]
