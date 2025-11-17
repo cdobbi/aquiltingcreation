@@ -1,0 +1,118 @@
+/* form.css */
+
+form {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #23345733;
+    padding: 2.5rem 2rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    width: 100%;
+}
+
+fieldset {
+    border: 2px solid var(--accent1-color);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
+    background: rgba(146, 163, 198, 0.08);
+}
+
+legend {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+label,
+.form-label {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea,
+.form-control {
+    border: 1.5px solid var(--accent2-color);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+    background: #fff;
+    color: var(--accent3-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"],
+.form-check-input {
+    accent-color: var(--accent2-color);
+    margin-right: 0.5rem;
+}
+
+.form-check-label {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.2rem;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button[type="submit"],
+.btn-success {
+    background: var(--accent2-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover,
+.btn-success:hover,
+.btn-success:focus {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+#pattern-image {
+    border: 2px solid var(--accent1-color);
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    background: #fff;
+    box-shadow: 0 2px 8px #23345733;
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 1rem 0.5rem;
+    }
+
+    fieldset {
+        padding: 1rem 0.5rem;
+    }
+
+    legend {
+        font-size: 1.1rem;
+    }
+}
+
+a,
+b,
+h1,
+h3,
+p {
+    font-weight: 400 !important;
+}
