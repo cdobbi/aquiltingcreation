@@ -1,0 +1,71 @@
+/* quilt.css */
+
+:root {
+    --quilt-border: #4a5f87;
+    --quilt-shadow: #23345733;
+    --quilt-bg: #f8f9fa;
+}
+
+.article-img img,
+.card-img-top {
+    border: 4px solid var(--quilt-border);
+    box-shadow: 0 4px 16px var(--quilt-shadow);
+    background: var(--quilt-bg);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.article-info {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 8px var(--quilt-shadow);
+    color: var(--primary-color);
+}
+
+.story-paragraph {
+    background: rgba(255, 255, 255, 0.7);
+    border-left: 6px solid var(--accent2-color);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    color: var(--accent3-color);
+    box-shadow: 0 2px 8px var(--quilt-shadow);
+}
+
+.article-info h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.article-info p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.btn-primary {
+    background-color: var(--accent2-color);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+a,
+b,
+h1,
+h2,
+h3,
+p {
+    font-weight: 400 !important;
+}
