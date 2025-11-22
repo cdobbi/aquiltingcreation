@@ -1,3 +1,56 @@
+# Overview
+
+This project is a web application I built to deepen my skills as a software engineer by designing a small, full-stack-capable website that demonstrates front-end interactivity, client-side form validation, and simple server-side form handling. The goal was to practice building an accessible, responsive content site with a gallery and contact flow while using plain HTML, CSS, JavaScript, and minimal PHP for form submission.
+
+The app is a small quilting-creation site that serves a landing page, a gallery of quilting patterns loaded from JSON, and a contact form that posts to a PHP endpoint. To run a local test server (recommended so the PHP form handler works), open PowerShell, change to the project folder, and run:
+
+```
+cd "c:\Users\UtahH\OneDrive\Desktop\aquiltingcreation"
+php -S localhost:8000
+```
+
+Then open `http://localhost:8000/index.html` in your browser to see the app's first page.
+
+If you only need to preview static pages and don't plan to submit the form, you can also use the VS Code Live Server extension or run a static HTTP server (for example `python -m http.server 8000`). Note that the PHP form handler (`submit_form.php`) requires a PHP-capable server.
+
+The purpose of writing this software was to practice building a small web project end-to-end: structuring static assets, dynamically loading JSON-driven content into the UI, validating forms client-side, and handling a basic server-side submission endpoint.
+
+[Software Demo Video](http://youtube.link.goes.here)
+
+# Web Pages
+
+- **`index.html` (Landing page):** The site's entry point. It describes the site and includes navigation links to the gallery and contact pages. The header/navigation persists across pages (via consistent markup and shared CSS). The landing page contains static content and calls into shared CSS (`styles/base.css` and `styles/quilt.css`) and `scripts/forms.js` for any client-side behaviors.
+
+- **`gallery.html` (Gallery page):** Displays quilting patterns and thumbnails. The page uses `scripts/gallery.js` to fetch `data/patterns.json` (and/or `data/items.json`) and dynamically create the gallery grid of items and their metadata (title, description, thumbnail paths in `images/`). Clicking an item may open a larger image or navigate to a detail view (implemented in-page via dynamic DOM updates or modal behavior implemented in `gallery.js`).
+
+- **`contact.html` (Contact / Submit page):** Contains a contact form that uses `scripts/forms.js` for client-side validation and `scripts/custom-captcha.js` for a lightweight captcha. On submit, the form POSTs to `submit_form.php` which handles the form server-side (email or log depending on server configuration). The page provides success/failure feedback to the user after submission.
+
+- **`submit_form.php` (Server endpoint):** A minimal PHP script that accepts POSTed form data from `contact.html`, performs server-side validation, and then either emails the submission or writes it to a file (configuration dependent). This file requires running the PHP built-in server or a PHP-capable web server to operate.
+
+Transitions: navigation links in the header move users between `index.html`, `gallery.html`, and `contact.html`. The gallery is dynamically populated by reading `data/patterns.json` using the Fetch API in `scripts/gallery.js`. Form submission triggers client-side validation in `scripts/forms.js` and then posts to `submit_form.php` for server-side handling.
+
+# Development Environment
+
+- **Editor / Tools:** Visual Studio Code, Git (for version control), modern web browsers (Chrome, Edge, Firefox) for testing, Windows PowerShell as the development shell.
+- **Local server:** PHP (for `submit_form.php`) — the PHP built-in server (`php -S`) is the recommended way to test the form handler locally. For static previews, VS Code Live Server or Python's `http.server` can be used.
+- **Languages:** HTML, CSS, JavaScript, PHP.
+- **Libraries / Frameworks:** No external JavaScript frameworks were required; the project uses vanilla JavaScript and the browser Fetch API. CSS is custom (no CSS frameworks included). If you add tooling later, Node-based build tools could be introduced, but are not necessary for the current code.
+
+# Useful Websites
+
+* [MDN Web Docs — HTML, CSS, JavaScript](https://developer.mozilla.org/)
+* [PHP Manual](https://www.php.net/manual/en/)
+* [Stack Overflow](https://stackoverflow.com/)
+* [W3C — HTML & Accessibility Guidelines](https://www.w3.org/)
+
+# Future Work
+
+* Improve responsive layout and test across more viewport sizes.
+* Add stronger server-side validation and sanitize all inputs in `submit_form.php`.
+* Replace the placeholder form submission handling with a persistent datastore (database) instead of file/email, if desired.
+* Improve accessibility (ARIA attributes, keyboard navigation, color contrast checks).
+* Add unit or integration tests for JS modules and end-to-end test for form submission.
+* Add search, filtering, and pagination for the gallery if the item list grows.
 # 🧵 A Quilting Creation 🪡
 
 Welcome to **A Quilting Creation** — a website for the longarm sewing business by Christi Dobbins!  
@@ -45,7 +98,6 @@ Here, quilting dreams are stitched into reality, one patch at a time.
 ## 📬 Contact
 
 - Email: [Christina.Dobbina@gmail.com](mailto:Christina.Dobbina@gmail.com)
-- Phone: 385-895-6068
 
 ---
 
@@ -80,35 +132,6 @@ Example entry:
 	"imageHeight": 44,
 	"description": "Charming daisies and leaves.",
 	"pricePerSquareInch": 0.020
-}
-```
-
-### Contributing / Adding a new pattern
-
-1. Add a new JSON object to `data/patterns.json`, following the schema above.
-2. Keep `pricePerSquareInch` as a number (not a string). Use 3 decimal places where appropriate (e.g. `0.020`).
-3. Use a relative path for `image` (e.g. `images/thumb16.webp`).
-4. If fields are missing, the form script will warn in the browser console — fix the data to remove warnings.
-
-### Validator (Recommended)
-
-Automated validation is considered a good development practice for projects that have structured data files (like `patterns.json`) and multiple contributors. A simple validator will:
-
-- Catch typos and missing keys early (e.g., a missing `pricePerSquareInch`).
-- Prevent UI bugs caused by inconsistent property names.
-- Be integrated into CI to reject pull requests with schema errors.
-
-You don't strictly need a validator for a single-person project, but it reduces accidental errors and saves time in collaborative workflows.
-
-If you'd like, I can add:
-- A small Node.js script that validates `data/patterns.json` fields.
-- A GitHub Actions workflow that runs the validator on push/PR.
-
-Example (validator using `ajv`):
-```bash
-# install (in a node-based environment)
-npm install -g ajv-cli
-ajv validate -s .github/validation/patterns.schema.json -d data/patterns.json
 ```
 
 ### Numeric vs String price fields — What to use and why
