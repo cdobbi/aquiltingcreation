@@ -1,4 +1,8 @@
-/* responsive.css */
+/*
+    responsive.css
+    Purpose: media queries and responsive adjustments.
+    Learning notes: test across devices; some fixed sizes may need additional tweaks for small screens.
+*/
 @media (max-width:1200px) {
 
     nav h1,

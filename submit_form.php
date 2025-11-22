@@ -1,4 +1,12 @@
 <?php
+/**
+ * submit_form.php
+ * Purpose: Receive POSTed form data from contact.html and send an email.
+ * Learning notes (beginner voice):
+ * - I used a simple .env loader for configuration and PHP's mail() for demonstration.
+ * - Important security notes: always sanitize inputs and never trust client-side validation.
+ * - Production suggestion: use a proper mail library (PHPMailer) and store secrets outside the webroot.
+ */
 // Load .env if available (simple loader)
 $envPath = __DIR__ . '/.env';
 if (file_exists($envPath)) {

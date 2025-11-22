@@ -1,4 +1,8 @@
-/* gallery.css */
+/*
+    gallery.css
+    Purpose: visual styles for the gallery/shop pages and cards.
+    Learning notes: card hover states and responsive breakpoints are defined here.
+*/
 
 main h2 {
     color: var(--primary-color);
@@ -186,13 +190,13 @@ h2 {
     position: absolute;
     top: 18px;
     left: -38px;
-    background:rgb(225, 179, 62);
+    background: rgb(225, 179, 62);
     color: #fff;
     font-weight: bold;
     font-size: 1.1rem;
     padding: 4px 40px;
     transform: rotate(-25deg);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     z-index: 2;
     pointer-events: none;
     letter-spacing: 0.1em;

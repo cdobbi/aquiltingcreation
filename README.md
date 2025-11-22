@@ -155,3 +155,11 @@ If you'd like, I can:
 - Convert all numeric values to strings and update scripts to parse them consistently (not recommended unless you need localized display formats in JSON).
 
 Tell me which you prefer and I can add the validation script and/or CI workflow for you.
+
+## Learning & Annotations
+
+- I annotated project files with beginner-friendly comments and added sidecar notes for JSON data. The annotation style aims to explain "what this file does", "why I wrote it this way", and "what I learned / would improve".
+- Files annotated inline: `index.html`, `gallery.html`, `contact.html`, `scripts/forms.js`, `scripts/gallery.js`, `scripts/custom-captcha.js`, `submit_form.php`, and CSS files in `styles/`.
+- JSON files have sidecar annotation files: `data/items.json.annot.md` and `data/patterns.json.annot.md` (JSON does not allow comments).
+- These annotations are intended to help reviewers understand the code, meet the module reflection requirements, and guide future refactors.
+

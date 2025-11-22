@@ -1,3 +1,9 @@
+// custom-captcha.js
+// Purpose: a very small client-side captcha (learning exercise).
+// Notes (beginner voice):
+// - This is NOT a secure captcha; it's only for learning and simple spam-reduction.
+// - Always validate on the server side too (see `submit_form.php` for reCAPTCHA usage).
+
 document.addEventListener("DOMContentLoaded", function () {
     // Generate two random numbers
     const a = Math.floor(Math.random() * 10) + 1;
@@ -8,15 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("captcha_answer", answer);
 
     // Show the question
-    document.getElementById("captcha-label").textContent = `Verify you are not a robot. What is ${a} + ${b}?`;
+    // Learning note: this uses localStorage for simplicity; sessionStorage could also be used.
+    const label = document.getElementById("captcha-label");
+    if (label) label.textContent = `Verify you are not a robot. What is ${a} + ${b}?`;
 });
 
 // On form submit, check the answer
-document.getElementById("design-form").addEventListener("submit", function (e) {
-    const userAnswer = document.getElementById("captcha-answer").value.trim();
-    const realAnswer = localStorage.getItem("captcha_answer");
-    if (userAnswer !== realAnswer) {
-        e.preventDefault();
-        alert("CAPTCHA incorrect. Please try again.");
-    }
-});
+const designForm = document.getElementById("design-form");
+if (designForm) {
+    designForm.addEventListener("submit", function (e) {
+        const userAnswerEl = document.getElementById("captcha-answer");
+        const userAnswer = userAnswerEl ? userAnswerEl.value.trim() : '';
+        const realAnswer = localStorage.getItem("captcha_answer");
+        if (userAnswer !== realAnswer) {
+            e.preventDefault();
+            alert("CAPTCHA incorrect. Please try again.");
+        }
+    });
+}

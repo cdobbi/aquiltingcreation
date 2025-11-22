@@ -1,4 +1,10 @@
-/* base.css */
+/*
+    base.css
+    Purpose: core site styles, variables, and layout helpers.
+    Learning notes (beginner voice):
+    - I keep shared variables and layout rules here so other CSS files can focus on components.
+    - Next improvement: consider using smaller modular files and a CSS preprocessor.
+*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {

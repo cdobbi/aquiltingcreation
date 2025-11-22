@@ -1,3 +1,9 @@
+// gallery.js
+// Purpose: render the shop grid and manage order slip interactions.
+// Learning notes (beginner voice):
+// - I separate rendering from state changes when possible.
+// - `selectedItems` holds the IDs of chosen items; in larger apps use a store.
+
 const VENMO_LINK = "https://venmo.com/"; // Replace with Christi's Venmo link if available
 const VENMO_QR = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(VENMO_LINK)}`;
 const OWNER_EMAIL = "LongarmQuiltService@gmail.com";
@@ -5,15 +11,18 @@ const OWNER_EMAIL = "LongarmQuiltService@gmail.com";
 let selectedItems = [];
 
 function formatPrice(price) {
+    // Format a number as USD. Learning note: this is simple and works for prototypes.
     return `$${price.toFixed(2)}`;
 }
 
 function generateOrderId() {
+    // Generate a short pseudo-unique order id using date + random component.
     const now = new Date();
     return `ORDER-${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}-${Math.floor(Math.random() * 9000 + 1000)}`;
 }
 
 function setOrderSlipButtons(enabled) {
+    // Enable/disable checkout buttons based on selection state.
     document.getElementById('checkout-btn').disabled = !enabled;
     const headerBtn = document.getElementById('checkout-btn-header');
     if (headerBtn) headerBtn.disabled = !enabled;

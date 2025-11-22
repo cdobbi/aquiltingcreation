@@ -1,4 +1,8 @@
-/* form.css */
+/*
+    form.css
+    Purpose: styles for contact/design forms and calculator UI.
+    Learning notes: I focused on readability and mobile responsiveness here.
+*/
 
 form {
     background: rgba(255, 255, 255, 0.95);

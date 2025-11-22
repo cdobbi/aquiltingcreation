@@ -1,4 +1,9 @@
-// form.js
+// forms.js
+// Purpose: populate the pattern selector, show a preview, and calculate quilting cost.
+// Learning notes (beginner voice):
+// - I used the Fetch API to load JSON and then manipulated the DOM to show options.
+// - Keep logic simple: fetch -> populate -> attach events.
+// - Next improvement: extract smaller functions and add unit tests.
 
 document.addEventListener("DOMContentLoaded", async () => {
     const patternSelect = document.getElementById("pattern-select");
@@ -29,6 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
         // Pattern select change event
+        // Note: I keep preview data on the DOM using `dataset` for simplicity.
         patternSelect.addEventListener("change", (event) => {
             const selectedPattern = patterns.find(
                 (pattern) => pattern.id == event.target.value
@@ -44,6 +50,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     " per sq in";
                 patternPreview.style.display = "block";
                 // Store price per sq in for calculator
+                // Learning note: storing small state on DOM elements is okay for small projects,
+                // but in larger apps consider a central state object or framework.
                 patternPreview.dataset.price = selectedPattern.price_per_sq_in || 0.035;
                 if (calcResult) calcResult.textContent = "";
             } else {
@@ -52,6 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
         // Calculator event
+        // Tip: validate inputs early to avoid NaN issues in calculations.
         if (calcBtn) {
             calcBtn.addEventListener("click", () => {
                 const length = parseFloat(quiltLength.value);

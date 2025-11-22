@@ -1,4 +1,8 @@
-/* quilt.css */
+/*
+    quilt.css
+    Purpose: quilt-specific component styles used on the landing page and feature areas.
+    Learning notes: visual choices aim for a soft, textile-like appearance; improve with variables later.
+*/
 
 :root {
     --quilt-border: #4a5f87;
