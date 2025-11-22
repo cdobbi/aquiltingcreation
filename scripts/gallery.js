@@ -139,19 +139,73 @@ function showOrderSlip(items) {
     modal.show();
 }
 
-fetch('data/items.json')
-    .then(res => res.json())
-    .then(items => {
+// If server provided items (window.__ITEMS__), use them; otherwise fetch the JSON file.
+(function initItems() {
+    const provided = window.__ITEMS__;
+    const onItemsLoaded = (items) => {
         renderShop(items);
 
         // Both buttons open the order slip modal
-        document.getElementById('checkout-btn').addEventListener('click', () => {
-            showOrderSlip(items);
-        });
+        const checkoutBtn = document.getElementById('checkout-btn');
+        if (checkoutBtn) checkoutBtn.addEventListener('click', () => showOrderSlip(items));
         const headerBtn = document.getElementById('checkout-btn-header');
-        if (headerBtn) {
-            headerBtn.addEventListener('click', () => {
-                showOrderSlip(items);
+        if (headerBtn) headerBtn.addEventListener('click', () => showOrderSlip(items));
+    };
+
+    if (provided && Array.isArray(provided)) {
+        onItemsLoaded(provided);
+    } else {
+        fetch('data/items.json')
+            .then(res => res.json())
+            .then(items => onItemsLoaded(items))
+            .catch(err => console.error('Failed to load items.json', err));
+    }
+})();
+
+// Enhance send-email button to POST order to server and still allow mailto as fallback
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'send-email-btn') {
+        const itemsEl = document.querySelectorAll('.select-item:checked');
+        const selectedIds = Array.from(itemsEl).map(i => i.value);
+        // Find the item objects from the currently rendered cards
+        const allCards = Array.from(document.querySelectorAll('.shop-card'));
+        const items = allCards.map(card => ({
+            id: card.dataset.id,
+            name: card.querySelector('.card-title') ? card.querySelector('.card-title').textContent.trim() : '',
+            priceText: card.querySelector('.fw-bold') ? card.querySelector('.fw-bold').textContent : '0'
+        })).filter(it => selectedIds.includes(it.id));
+
+        const subtotal = items.reduce((sum, it) => {
+            const numeric = parseFloat((it.priceText || '').replace(/[^0-9\.\-]/g, '')) || 0;
+            return sum + numeric;
+        }, 0);
+
+        const orderId = generateOrderId();
+
+        // POST to server to save the order
+        fetch('/order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ orderId, items, subtotal })
+        })
+            .then(r => r.json())
+            .then(res => {
+                if (res && res.success) {
+                    // show confirmation page or modal
+                    // navigate to order confirmation page with order id
+                    window.location.href = `/order-confirmation/${encodeURIComponent(orderId)}`;
+                } else {
+                    // fallback to mailto if save failed
+                    alert('Unable to save order to server. Opening email client as fallback.');
+                    const mailto = `mailto:${encodeURIComponent('LongarmQuiltService@gmail.com')}?subject=${encodeURIComponent('Quilt Order: ' + orderId)}&body=${encodeURIComponent(JSON.stringify(items, null, 2))}`;
+                    window.location.href = mailto;
+                }
+            })
+            .catch(err => {
+                console.error('Order POST failed', err);
+                alert('Unable to contact server; opening email client as fallback.');
+                const mailto = `mailto:${encodeURIComponent('LongarmQuiltService@gmail.com')}?subject=${encodeURIComponent('Quilt Order: ' + orderId)}&body=${encodeURIComponent(JSON.stringify(items, null, 2))}`;
+                window.location.href = mailto;
             });
-        }
-    });
+    }
+});

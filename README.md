@@ -77,6 +77,24 @@ Here, quilting dreams are stitched into reality, one patch at a time.
 3. To submit a custom quilt request, use the **Design** form.
 4. All styles and scripts are in the `styles/` and `scripts/` folders.
 
+## Running the app with Node (Express)
+
+I added a minimal Node + Express server to render the gallery server-side and store orders in SQLite. I only changed the e-commerce flow files and added server files; all other pages remain unchanged.
+
+Quick setup (run in PowerShell from the project folder):
+
+```powershell
+cd "c:\Users\UtahH\OneDrive\Desktop\aquiltingcreation"
+npm install
+npm start
+```
+
+Then open `http://localhost:8000/gallery` to view the server-rendered gallery. The server also exposes a POST `/order` endpoint used by the gallery to save order data into `data/orders.db`.
+
+Notes:
+- The server uses `ejs` for templating and `better-sqlite3` for a lightweight SQLite DB. If you don't want Node, you can stop the server and the static pages still work.
+- I kept a mailto fallback in `scripts/gallery.js` if saving the order to the server fails.
+
 ---
 
 ## 🛠️ Tech Stack

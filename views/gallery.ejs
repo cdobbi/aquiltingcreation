@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quilt Shop | A Quilting Creation</title>
@@ -8,108 +9,119 @@
     <link rel="stylesheet" href="/styles/gallery.css">
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/responsive.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Rendered server-side; client JS can use window.__ITEMS__ if present -->
     <header>
-      <!-- reuse header from static page by linking to index.html assets -->
-      <nav class="navbar">
-        <div class="nav-row">
-          <a class="logo-link" href="/index.html">
-            <img src="/images/blue-machine.webp" alt="Quilt Creations Logo" width="52" height="52" loading="lazy">
-          </a>
-          <div class="navbar-motto text-center flex-grow-1 d-flex flex-column justify-content-center">
-            <span class="d-block fs-5 fw-normal fst-italic">Stitches of love, patches of dreams,<br>quilts tell stories through fabric seams.</span>
-          </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="mainNav">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link text-white" href="/index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/gallery">Shop/Gallery</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/contact.html">Design</a></li>
-          </ul>
-        </div>
-      </nav>
+        <!-- reuse header from static page by linking to index.html assets -->
+        <nav class="navbar">
+            <div class="nav-row">
+                <a class="logo-link" href="/index.html">
+                    <img src="/images/blue-machine.webp" alt="Quilt Creations Logo" width="52" height="52" loading="lazy">
+                </a>
+                <div class="navbar-motto text-center flex-grow-1 d-flex flex-column justify-content-center">
+                    <span class="d-block fs-5 fw-normal fst-italic">Stitches of love, patches of dreams,<br>quilts tell stories through
+                        fabric seams.</span>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="mainNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/gallery">Shop/Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/contact.html">Design</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <main class="container my-4 transparent-bg">
-      <div class="position-relative ticker-banner w-100 d-flex justify-content-center align-items-center py-2">
-        <span class="shipping-icon me-2" style="font-size:2rem; display:inline-block;">📦</span>
-        <span id="ticker-typed" class="ticker-text px-3 py-1 rounded-pill text-black fw-bold shadow-sm"></span>
-      </div>
-
-      <h2 tabindex="0">Shop Finished Quilts & More</h2>
-      <div id="shop-row" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-3">
-        <% items.forEach(function(item){ %>
-          <div class="col">
-            <div class="card h-100 shop-card position-relative" data-id="<%= item.id %>">
-              <%= item.sold ? '<div class="sold-banner">SOLD</div>' : '' %>
-              <img alt="<%= item.name %>" src="/<%= item.image.replace(/^\//, '') %>" class="card-img-top" style="width:100%;max-width:400px;height:auto;object-fit:cover;" loading="lazy">
-              <div class="card-body">
-                <h2 class="card-title fs-5"><%= item.name %></h2>
-                <p class="card-text"><%= item.description %></p>
-                <p class="fw-bold">$<%= Number(item.price).toFixed(2) %></p>
-                <div class="form-check">
-                  <input class="form-check-input select-item" type="checkbox" value="<%= item.id %>" id="select-<%= item.id %>" <%= item.sold ? 'disabled' : '' %>>
-                  <label class="form-check-label" for="select-<%= item.id %>">Select</label>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% }) %>
-      </div>
-
-      <div class="text-center mt-4">
-        <button id="checkout-btn" class="btn btn-success" disabled>View Order Slip</button>
-      </div>
-
-      <!-- Order Slip Modal (same structure as original) -->
-      <div class="modal fade" id="orderSlipModal" tabindex="-1" aria-labelledby="orderSlipLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content p-3">
-            <div class="modal-header">
-              <h5 class="modal-title" id="orderSlipLabel">🧵 Your Order Slip 🪡</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="order-slip-content"></div>
-            <div class="modal-footer d-flex flex-column align-items-center">
-              <button id="send-email-btn" class="btn btn-primary mb-2">Send Order Email</button>
-              <button id="print-order-slip" class="btn btn-outline-secondary">Print for Records</button>
-            </div>
-          </div>
+        <div class="position-relative ticker-banner w-100 d-flex justify-content-center align-items-center py-2">
+            <span class="shipping-icon me-2" style="font-size:2rem; display:inline-block;">📦</span>
+            <span id="ticker-typed" class="ticker-text px-3 py-1 rounded-pill text-black fw-bold shadow-sm"></span>
         </div>
-      </div>
+
+        <h2 tabindex="0">Shop Finished Quilts & More</h2>
+        <div id="shop-row" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-3">
+            <% items.forEach(function(item){ %>
+                <div class="col">
+                    <div class="card h-100 shop-card position-relative" data-id="<%= item.id %>">
+                        <%= item.sold ? '<div class="sold-banner">SOLD</div>' : '' %>
+                            <img alt="<%= item.name %>" src="/<%= item.image.replace(/^\//, '') %>" class="card-img-top"
+                                style="width:100%;max-width:400px;height:auto;object-fit:cover;" loading="lazy">
+                            <div class="card-body">
+                                <h2 class="card-title fs-5">
+                                    <%= item.name %>
+                                </h2>
+                                <p class="card-text">
+                                    <%= item.description %>
+                                </p>
+                                <p class="fw-bold">$<%= Number(item.price).toFixed(2) %>
+                                </p>
+                                <div class="form-check">
+                                    <input class="form-check-input select-item" type="checkbox" value="<%= item.id %>"
+                                        id="select-<%= item.id %>" <%=item.sold ? 'disabled' : '' %>>
+                                    <label class="form-check-label" for="select-<%= item.id %>">Select</label>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+
+        <div class="text-center mt-4">
+            <button id="checkout-btn" class="btn btn-success" disabled>View Order Slip</button>
+        </div>
+
+        <!-- Order Slip Modal (same structure as original) -->
+        <div class="modal fade" id="orderSlipModal" tabindex="-1" aria-labelledby="orderSlipLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content p-3">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderSlipLabel">🧵 Your Order Slip 🪡</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="order-slip-content"></div>
+                    <div class="modal-footer d-flex flex-column align-items-center">
+                        <button id="send-email-btn" class="btn btn-primary mb-2">Send Order Email</button>
+                        <button id="print-order-slip" class="btn btn-outline-secondary">Print for Records</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
     <footer class="text-center py-2">
-      <p>🧵 A Quilting Creation 🪡 | 801-671-6344 | <a href="mailto:LongarmQuiltService@gmail.com">LongarmQuiltService@gmail.com</a></p>
-      <p>&copy; 2025 | Christi Dobbins | <a href="mailto:hopncode@gmail.com">hopncode@gmail.com</a></p>
+        <p>🧵 A Quilting Creation 🪡 | 801-671-6344 | <a href="mailto:LongarmQuiltService@gmail.com">LongarmQuiltService@gmail.com</a></p>
+        <p>&copy; 2025 | Christi Dobbins | <a href="mailto:hopncode@gmail.com">hopncode@gmail.com</a></p>
     </footer>
 
     <script>
-      // Provide items to client scripts to avoid double-fetching
-      window.__ITEMS__ = <%- JSON.stringify(items) %>;
+        // Provide items to client scripts to avoid double-fetching
+        window.__ITEMS__ = <% - JSON.stringify(items) %>;
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/scripts/gallery.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const text = "FREE shipping for all orders $100+";
-        const el = document.getElementById("ticker-typed");
-        let i = 0;
-        function type() {
-          if (i <= text.length) {
-            el.textContent = text.slice(0, i);
-            i++;
-            setTimeout(type, 55);
-          }
-        }
-        type();
-      });
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "FREE shipping for all orders $100+";
+            const el = document.getElementById("ticker-typed");
+            let i = 0;
+            function type() {
+                if (i <= text.length) {
+                    el.textContent = text.slice(0, i);
+                    i++;
+                    setTimeout(type, 55);
+                }
+            }
+            type();
+        });
     </script>
-  </body>
+</body>
+
 </html>
