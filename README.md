@@ -34,7 +34,9 @@ npm start
 
 Then open: http://localhost:8000/gallery
 
-To test placing an order: select items in the gallery, click "View Order Slip", then choose "Send Order Email" (the UI uses `POST /order` to save the order to `data/orders.db`).
+To test placing an order: select items in the gallery, click "View Order Slip", then choose "Send Order Email" (the UI uses `POST /order` to save the order).
+
+Notes about running on Windows: this project used to use a native SQLite module (`better-sqlite3`) which sometimes needs Windows build tools. To make local testing easier, the server now falls back to a simple JSON store (`data/orders.json`) when `better-sqlite3` isn't available — so `npm install` and `npm start` should work directly inside VS Code's terminal without installing Visual Studio build tools.
 
 ---
 © 2025 — A Quilting Creation
