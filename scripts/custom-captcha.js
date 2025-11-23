@@ -1,8 +1,7 @@
 // custom-captcha.js
 // Purpose: a very small client-side captcha (learning exercise).
-// Notes (beginner voice):
+// Notes:
 // - This is NOT a secure captcha; it's only for learning and simple spam-reduction.
-// - Always validate on the server side too (see `submit_form.php` for reCAPTCHA usage).
 
 document.addEventListener("DOMContentLoaded", function () {
     // Generate two random numbers

@@ -1,35 +1,49 @@
 <!DOCTYPE html>
+<!-- !DOCTYPE html = declaration that this document is HTML5 -->
 <html lang="en">
+<!-- html (root element) lang (attribute) = "en" (value: English language) -->
 
 <head>
+    <!-- head = document head (contains metadata, links to styles and scripts) -->
     <!--
         File: index.html
         Purpose: Landing page for A Quilting Creation.
         Notes:
         - This page is mostly static HTML and uses Bootstrap for layout.
-        - I keep CSS and JS in `styles/` and `scripts/` to keep structure clear.
     -->
-    <meta charset="UTF-8">
-    <!-- This meta tag ensures responsiveness on mobile devices -->
+    <meta charset="UTF-8"> <!-- element(meta) attribute(charset) operator(=) value("UTF-8") -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- element(meta) attribute(name) operator(=) value("viewport") | attribute(content) operator(=) value("width=device-width, initial-scale=1.0") -->
     <meta name="description"
         content="Welcome to A Quilting Creation, where we bring your quilting dreams to life. Explore our shop, services, and get started on your next quilt project today!">
+    <!-- element(meta) attribute(name) operator(=) value("description") | attribute(content) operator(=) value(text) -->
     <link rel="icon" href="images/blue-machine.ico" type="image/x-icon">
+    <!-- element(link) attribute(rel) operator(=) value("icon") | attribute(href) operator(=) value("images/blue-machine.ico") | attribute(type) operator(=) value("image/x-icon") -->
     <meta name="keywords"
-        content="quilting, quilt patterns, quilt designs, quilting services, custom quilts, Utah quilting, Christi Dobbins, LeAnn Hill, A Quilting Creation, handmade quilts, quilt workshops, quilting classes, quilting supplies, quilting fabrics, quilting tutorials, quilt gallery, quilt projects, quilting techniques, sewing, textile art, quilt making, home decor, personalized quilts, quilting events, quilting community, online quilting, quilting blog, quilt kits, patchwork, embroidery, craft, needlework, quilting passion, quilt artistry, longarm quilting, longarm quilting services, longarm quilting patterns, longarm quilting designs, longarm quilting tutorials, professional quilting, quilting tools, quilting software, digital quilting patterns, machine quilting, free-motion quilting, longarm quilting machine, quilting accessories, heirloom quilts, modern quilting, traditional quilting, quilting retreats, quilting exhibitions, quilting inspirations, quilting for beginners, advanced quilting, eco-friendly quilting, sustainable quilting, quilting innovations, quilt ideas, quilting creativity, sewing service near me, quilting service near me, quilt shop near me, quilting supplies near me, quilting fabrics near me, quilting tutorials near me, quilt gallery near me, quilt projects near me, quilting techniques near me, sewing near me, textile art near me, quilt making near me, home decor near me, personalized quilts near me, quilting events near me, quilting community near me, online quilting near me, quilting blog near me, quilt kits near me, quilted gifts, quilted home decor, quilted accessories, quilting inspiration, quilting showcases">
+        content="quilting, quilt patterns, quilt designs, quilting services, custom quilts, Utah quilting, Christi Dobbins, LeAnn Hill, A Quilting Creation, handmade quilts, quilt workshops, quilting classes, quilting supplies, quilting fabrics, quilting tutorials, quilt gallery, quilt projects, quilting techniques, sewing, textile art, quilt making, home decor, personalized quilts, quilting events, quilting community, online quilting, quilting blog, quilt kits, patchwork, embroidery, craft, needlework, quilting passion, quilt artistry, longarm quilting, longarm quilting services, longarm quilt patterns, longarm quilting designs, longarm quilting tutorials, professional quilting, quilting tools, quilting software, digital quilting patterns, machine quilting, free-motion quilting, longarm quilting machine, quilting accessories, heirloom quilts, modern quilting, traditional quilting, quilting retreats, quilting exhibitions, quilting inspirations, quilting for beginners, advanced quilting, eco-friendly quilting, sustainable quilting, quilting innovations, quilt ideas, quilting creativity, sewing service near me, quilting service near me, quilt shop near me, quilting supplies near me, quilting fabrics near me, quilting tutorials near me, quilt gallery near me, quilt projects near me, quilting techniques near me, sewing near me, textile art near me, quilt making near me, home decor near me, personalized quilts near me, quilting events near me, quilting community near me, online quilting near me, quilting blog near me, quilt kits near me, quilted gifts, quilted home decor, quilted accessories, quilting inspiration, quilting showcases">
+    <!-- element(meta) attribute(name) operator(=) value("keywords") | attribute(content) operator(=) value(long-text) -->
 
     <meta name="author" content="Christi Dobbins">
+    <!-- element(meta) attribute(name) operator(=) value("author") | attribute(content) operator(=) value("Christi Dobbins") -->
     <meta property="og:title" content="Home | A Quilting Creation">
+    <!-- element(meta) attribute(property) operator(=) value("og:title") | attribute(content) operator(=) value("Home | A Quilting Creation") -->
     <meta property="og:description"
         content="Welcome to A Quilting Creation, where we bring your quilting dreams to life. Explore our shop, services, and get started on your next quilt project today!">
+    <!-- element(meta) attribute(property) operator(=) value("og:description") | attribute(content) operator(=) value(text) -->
     <meta property="og:image" content="images/blue-machine.ico">
+    <!-- element(meta) attribute(property) operator(=) value("og:image") | attribute(content) operator(=) value("images/blue-machine.ico") -->
     <meta property="og:url" content="index.html">
-    <title>Home | A Quilting Creation | Christi Dobbins</title>
+    <!-- element(meta) attribute(property) operator(=) value("og:url") | attribute(content) operator(=) value("index.html") -->
+    <title>Home | A Quilting Creation | Christi Dobbins</title> <!-- element(title) content(text used for tab and SEO) -->
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- element(link) attribute(href) operator(=) value(URL) | attribute(rel) operator(=) value("stylesheet") -->
     <link rel="stylesheet" href="styles/quilt.css">
+    <!-- element(link) attribute(rel) operator(=) value("stylesheet") | attribute(href) operator(=) value("styles/quilt.css") -->
     <link rel="stylesheet" href="styles/base.css">
+    <!-- element(link) attribute(rel) operator(=) value("stylesheet") | attribute(href) operator(=) value("styles/base.css") -->
     <link rel="stylesheet" href="styles/responsive.css">
+    <!-- element(link) attribute(rel) operator(=) value("stylesheet") | attribute(href) operator(=) value("styles/responsive.css") -->
 </head>
 
 <body>
