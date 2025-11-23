@@ -5,7 +5,7 @@
 
 // This is an event listener (a function that waits for something to happen, like the page loading).
 // It uses the DOMContentLoaded event (a built-in event that fires when the HTML is ready).
-// The function keyword defines a regular function (not arrow function here).
+// The function keyword defines a regular function.
 document.addEventListener("DOMContentLoaded", function () {
     // Generate two random numbers
     // Math.random() is a function (built-in) that gives a random number between 0 and 1.
