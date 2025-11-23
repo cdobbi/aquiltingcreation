@@ -1,6 +1,6 @@
 # A Quilting Creation — web app
 
-Simple, beginner-friendly Node (Express) web app for a small quilting storefront.
+Beginner-friendly Node (Express) web app for a small quilting storefront.
 
 Project requirements:
 
