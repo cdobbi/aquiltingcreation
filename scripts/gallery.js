@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (resp.ok) items = await resp.json(); else items = [];
         }
 
-        // If the shop-row is empty (static page) render items using renderShop
+        // Save items for other handlers, and if the shop-row is empty (static page) render items using renderShop
+        galleryItems = items || [];
         const shopRow = document.getElementById('shop-row');
         if (shopRow && shopRow.children.length === 0 && Array.isArray(items)) {
             renderShop(items);
@@ -137,3 +138,95 @@ function renderShop(items) {
 
 // showOrderSlip is a function that takes items (array).
 // filter is a method on arrays (keeps items that match).
+
+// Keep a global copy of items for handlers
+let galleryItems = [];
+
+function getSelectedItemObjects() {
+    return selectedItems.map(id => galleryItems.find(it => String(it.id) === String(id))).filter(Boolean);
+}
+
+function calculateSubtotal(items) {
+    return items.reduce((sum, it) => sum + (Number(it.price) || 0), 0);
+}
+
+function buildOrderSlipHtml(items, orderId) {
+    const subtotal = calculateSubtotal(items);
+    const rows = items.map(it => `<div class="d-flex justify-content-between"><div>${it.name}</div><div>${formatPrice(Number(it.price) || 0)}</div></div>`).join('\n');
+    return `
+        <div class="mb-2">Order ID: <strong>${orderId}</strong></div>
+        <div class="order-items mb-3">${rows}</div>
+        <div class="d-flex justify-content-between fw-bold"> <div>Subtotal</div><div>${formatPrice(subtotal)}</div></div>
+    `;
+}
+
+async function sendOrderToServer(orderId, items, subtotal) {
+    try {
+        const resp = await fetch('/order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ orderId, items, subtotal })
+        });
+        return resp.ok ? await resp.json() : null;
+    } catch (err) {
+        console.error('Error sending order to server', err);
+        return null;
+    }
+}
+
+function showOrderSlipModal() {
+    const selected = getSelectedItemObjects();
+    if (!selected.length) return;
+
+    const orderId = generateOrderId();
+    const subtotal = calculateSubtotal(selected);
+    const content = document.getElementById('order-slip-content');
+    if (content) content.innerHTML = buildOrderSlipHtml(selected, orderId);
+
+    const modalEl = document.getElementById('orderSlipModal');
+    let modalInstance = null;
+    if (modalEl) {
+        try {
+            modalInstance = new bootstrap.Modal(modalEl);
+            modalInstance.show();
+        } catch (err) {
+            console.warn('Bootstrap modal not available', err);
+        }
+    }
+
+    const sendBtn = document.getElementById('send-email-btn');
+    if (sendBtn) {
+        const newBtn = sendBtn.cloneNode(true);
+        sendBtn.parentNode.replaceChild(newBtn, sendBtn);
+        newBtn.addEventListener('click', async () => {
+            newBtn.disabled = true;
+            newBtn.textContent = 'Sending...';
+            const result = await sendOrderToServer(orderId, selected, subtotal);
+            if (result && result.success) {
+                newBtn.textContent = 'Order Saved';
+                setTimeout(() => {
+                    if (modalInstance) modalInstance.hide();
+                    window.location.href = `/order-confirmation/${orderId}`;
+                }, 700);
+            } else {
+                newBtn.textContent = 'Send Order Email';
+                newBtn.disabled = false;
+                alert('Failed to save order — check console for errors.');
+            }
+        });
+    }
+}
+
+// Attach checkout button handler
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        if (window.__ITEMS__ && Array.isArray(window.__ITEMS__)) galleryItems = window.__ITEMS__;
+    } catch (e) { /* ignore */ }
+
+    if (!galleryItems.length) {
+        fetch('/data/items.json').then(r => r.ok ? r.json() : []).then(data => { galleryItems = data || []; }).catch(() => { });
+    }
+
+    const checkout = document.getElementById('checkout-btn');
+    if (checkout) checkout.addEventListener('click', showOrderSlipModal);
+});
