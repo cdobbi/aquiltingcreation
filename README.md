@@ -24,19 +24,26 @@ Project requirements:
 - Interactivity: the gallery page allows item selection and submits orders via POST `/order` to the server; the server saves orders in SQLite.
 - Runs locally using the provided test server (`node server.js`).
 
-## Quick start — run locally (PowerShell)
+## Quick start — run locally (VS Code terminal)
+
+Open the project folder in VS Code and use the integrated terminal (Terminal → New Terminal). These commands work in PowerShell inside VS Code:
 
 ```powershell
 cd "c:\Users\UtahH\OneDrive\Desktop\aquiltingcreation"
+# (optional cleanup if a previous install failed)
+Remove-Item node_modules,package-lock.json -Recurse -Force -ErrorAction SilentlyContinue
 npm install
 npm start
 ```
 
-Then open: http://localhost:8000/gallery
+Then open http://localhost:8000/gallery in your browser.
 
-To test placing an order: select items in the gallery, click "View Order Slip", then choose "Send Order Email" (the UI uses `POST /order` to save the order).
+How to verify the app (quick):
 
-Notes about running on Windows: this project used to use a native SQLite module (`better-sqlite3`) which sometimes needs Windows build tools. To make local testing easier, the server now falls back to a simple JSON store (`data/orders.json`) when `better-sqlite3` isn't available — so `npm install` and `npm start` should work directly inside VS Code's terminal without installing Visual Studio build tools.
+- On `/gallery` select one or more items → View Order Slip → Send Order Email
+- Confirm persistence:
+	- If `better-sqlite3` was installed on your machine, orders are saved to `data/orders.db` (SQLite).
+	- Otherwise the app uses a JSON fallback and appends orders to `data/orders.json` (this ensures the app runs in VS Code without Visual Studio build tools).
 
 ---
 © 2025 — A Quilting Creation
