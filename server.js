@@ -4,7 +4,6 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const morgan = require('morgan');
 const Database = require('better-sqlite3');
 
 const app = express();
@@ -15,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Middleware
-app.use(morgan('dev'));
+// Minimal middleware for a beginner-friendly server
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
