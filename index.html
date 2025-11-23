@@ -1,7 +1,13 @@
 <!DOCTYPE html>
+<!-- This is the DOCTYPE declaration (a special instruction that tells the browser this is an HTML5 document). -->
+<!-- It starts every HTML file and ensures the page displays correctly. -->
 <!-- !DOCTYPE html = declaration that this document is HTML5 -->
+<!-- This is the html element (the root element that wraps the entire page). -->
+<!-- It has a lang attribute (a property that specifies the language, here "en" for English). -->
 <html lang="en">
-<!-- html (root element) lang (attribute) = "en" (value: English language) -->
+<!-- html (root element) lang (attribute) operator(=) value("en") (English language) -->
+
+<!-- This is the head element (contains information about the page, like title and links, not shown on the page itself). -->
 
 <head>
     <!-- head = document head (contains metadata, links to styles and scripts) -->
@@ -11,33 +17,52 @@
         Notes:
         - This page is mostly static HTML and uses Bootstrap for layout.
     -->
+    <!-- This is a meta element (provides metadata, like character encoding). -->
+    <!-- charset attribute (specifies the character set, UTF-8 for universal text support). -->
     <meta charset="UTF-8"> <!-- element(meta) attribute(charset) operator(=) value("UTF-8") -->
+    <!-- Another meta element for viewport (controls how the page scales on mobile devices). -->
+    <!-- name attribute (defines the type of meta, "viewport"). -->
+    <!-- content attribute (holds the value, setting width and initial zoom). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- element(meta) attribute(name) operator(=) value("viewport") | attribute(content) operator(=) value("width=device-width, initial-scale=1.0") -->
+    <!-- Meta for description (a short summary for search engines). -->
     <meta name="description"
         content="Welcome to A Quilting Creation, where we bring your quilting dreams to life. Explore our shop, services, and get started on your next quilt project today!">
     <!-- element(meta) attribute(name) operator(=) value("description") | attribute(content) operator(=) value(text) -->
+    <!-- Link element for favicon (the small icon in the browser tab). -->
+    <!-- rel attribute (relationship, "icon"). -->
+    <!-- href attribute (path to the icon file). -->
+    <!-- type attribute (file type). -->
     <link rel="icon" href="images/blue-machine.ico" type="image/x-icon">
     <!-- element(link) attribute(rel) operator(=) value("icon") | attribute(href) operator(=) value("images/blue-machine.ico") | attribute(type) operator(=) value("image/x-icon") -->
+    <!-- Meta for keywords (words for search engines, though less important now). -->
     <meta name="keywords"
         content="quilting, quilt patterns, quilt designs, quilting services, custom quilts, Utah quilting, Christi Dobbins, LeAnn Hill, A Quilting Creation, handmade quilts, quilt workshops, quilting classes, quilting supplies, quilting fabrics, quilting tutorials, quilt gallery, quilt projects, quilting techniques, sewing, textile art, quilt making, home decor, personalized quilts, quilting events, quilting community, online quilting, quilting blog, quilt kits, patchwork, embroidery, craft, needlework, quilting passion, quilt artistry, longarm quilting, longarm quilting services, longarm quilt patterns, longarm quilting designs, longarm quilting tutorials, professional quilting, quilting tools, quilting software, digital quilting patterns, machine quilting, free-motion quilting, longarm quilting machine, quilting accessories, heirloom quilts, modern quilting, traditional quilting, quilting retreats, quilting exhibitions, quilting inspirations, quilting for beginners, advanced quilting, eco-friendly quilting, sustainable quilting, quilting innovations, quilt ideas, quilting creativity, sewing service near me, quilting service near me, quilt shop near me, quilting supplies near me, quilting fabrics near me, quilting tutorials near me, quilt gallery near me, quilt projects near me, quilting techniques near me, sewing near me, textile art near me, quilt making near me, home decor near me, personalized quilts near me, quilting events near me, quilting community near me, online quilting near me, quilting blog near me, quilt kits near me, quilted gifts, quilted home decor, quilted accessories, quilting inspiration, quilting showcases">
     <!-- element(meta) attribute(name) operator(=) value("keywords") | attribute(content) operator(=) value(long-text) -->
 
+    <!-- Meta for author (who created the page). -->
     <meta name="author" content="Christi Dobbins">
     <!-- element(meta) attribute(name) operator(=) value("author") | attribute(content) operator(=) value("Christi Dobbins") -->
+    <!-- Open Graph meta for social sharing (title for Facebook, etc.). -->
+    <!-- property attribute (Open Graph property). -->
     <meta property="og:title" content="Home | A Quilting Creation">
     <!-- element(meta) attribute(property) operator(=) value("og:title") | attribute(content) operator(=) value("Home | A Quilting Creation") -->
+    <!-- Open Graph description. -->
     <meta property="og:description"
         content="Welcome to A Quilting Creation, where we bring your quilting dreams to life. Explore our shop, services, and get started on your next quilt project today!">
     <!-- element(meta) attribute(property) operator(=) value("og:description") | attribute(content) operator(=) value(text) -->
+    <!-- Open Graph image. -->
     <meta property="og:image" content="images/blue-machine.ico">
     <!-- element(meta) attribute(property) operator(=) value("og:image") | attribute(content) operator(=) value("images/blue-machine.ico") -->
+    <!-- Open Graph URL. -->
     <meta property="og:url" content="index.html">
     <!-- element(meta) attribute(property) operator(=) value("og:url") | attribute(content) operator(=) value("index.html") -->
+    <!-- Title element (the text shown in the browser tab and for SEO). -->
     <title>Home | A Quilting Creation | Christi Dobbins</title> <!-- element(title) content(text used for tab and SEO) -->
-    <!-- Bootstrap 5 CSS -->
+    <!-- Bootstrap 5 CSS link (loads external stylesheet for styling). -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- element(link) attribute(href) operator(=) value(URL) | attribute(rel) operator(=) value("stylesheet") -->
+    <!-- Local CSS links for custom styles. -->
     <link rel="stylesheet" href="styles/quilt.css">
     <!-- element(link) attribute(rel) operator(=) value("stylesheet") | attribute(href) operator(=) value("styles/quilt.css") -->
     <link rel="stylesheet" href="styles/base.css">
@@ -46,14 +71,23 @@
     <!-- element(link) attribute(rel) operator(=) value("stylesheet") | attribute(href) operator(=) value("styles/responsive.css") -->
 </head>
 
+<!-- This is the body element (contains the visible content of the page). -->
+
 <body>
+    <!-- Header element (top section, often for navigation). -->
     <header>
+        <!-- Nav element (navigation bar). -->
         <nav class="navbar">
+            <!-- Div for the nav row (a container div with classes for Bootstrap styling). -->
             <div class="nav-row">
+                <!-- Anchor element (link) for the logo. -->
                 <a class="logo-link" href="index.html" target="_blank" rel="noreferrer noopener">
+                    <!-- Img element (displays an image). -->
                     <img src="images/blue-machine.webp" alt="Quilt Creations Logo" width="52" height="52" loading="lazy">
                 </a>
+                <!-- Div for the motto (centered text with Bootstrap classes). -->
                 <div class="navbar-motto text-center flex-grow-1 d-flex flex-column justify-content-center">
+                    <!-- Span elements (inline text containers). -->
                     <!-- <span class="d-block fw-normal fst-italic fs-3 fs-md-4 fs-lg-6">
                         Stitches of love, patches of dreams,<br>
                         quilts tell stories through fabric seams.
@@ -63,13 +97,18 @@
                         quilts tell stories through fabric seams.
                     </span>
                 </div>
+                <!-- Button for toggling the menu on mobile (Bootstrap component). -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav"
                     aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Span for the icon (visual hamburger menu). -->
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
+            <!-- Collapsible nav menu (hidden/shown by button). -->
             <div class="navbar-collapse collapse" id="mainNav">
+                <!-- Ul element (unordered list for menu items). -->
                 <ul class="navbar-nav">
+                    <!-- Li elements (list items). -->
                     <li class="nav-item"><a class="nav-link text-white" href="index.html" target="_blank">Home</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="gallery.html" target="_blank">Shop/Gallery</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="contact.html" target="_blank">Design</a></li>
@@ -77,21 +116,30 @@
             </div>
         </nav>
     </header>
+    <!-- Main element (main content of the page). -->
     <main class="container my-4" style="margin-top: 80px;">
+        <!-- Article elements (sections of content). -->
         <article class="row justify-content-center align-items-center g-3 mb-4" style="--index: 0">
+            <!-- Div for image column. -->
             <div class="col-md-6 article-img">
+                <!-- Img element with responsive attributes. -->
                 <img src="images/15newspaper.webp"
                     srcset="images/15newspaper.webp 350w, images/15newspaper.webp 750w, images/15newspaper.webp 1200w"
                     srcset="images/15newspaper.jpg 350w, images/15newspaper.jpg 750w, images/15newspaper.jpg 1200w"
                     alt="Responsive Image index 0" class="img-fluid rounded shadow-sm" loading="lazy">
             </div>
+            <!-- Div for info column. -->
             <div class="col-md-5 article-info">
+                <!-- H2 element (heading level 2). -->
                 <h2>Welcome to A Quilting Creation!</h2>
+                <!-- P element (paragraph). -->
                 <p>Discover unique, handmade quilts and quilted gifts in my <strong>Shop</strong>, or let me stitch your own
                     custom quilt!</p>
+                <!-- Anchor element (button link). -->
                 <a href="gallery.html" class="btn btn-primary">Shop Quilts & Gifts</a>
             </div>
         </article>
+        <!-- ...existing code... (second article with similar structure, images, and text) -->
         <article class="row justify-content-center align-items-center g-3 mb-4" style="--index: 1">
             <div class="col-md-6 article-img">
                 <img src="images/thumb22.webp" srcset="images/thumb22.webp 350w, images/thumb22.webp 750w, images/thumb22.webp 1200w"
@@ -113,6 +161,7 @@
                 <a href="contact.html" class="btn btn-primary">Start Your Custom Quilt</a>
             </div>
         </article>
+        <!-- ...existing code... (third article with image and text) -->
         <article class="row justify-content-center align-items-center g-3 mb-4" style="--index: 2">
             <div class="col-md-6 article-img">
                 <img src="images/36mbeigh.webp" srcset="images/36mbeigh.webp 350w, images/36mbeigh.webp 750w, images/36mbeigh.webp 1200w"
@@ -123,6 +172,7 @@
                 <p>Expert finishing for your treasured quilt tops—fast, beautiful, and made to last.</p>
             </div>
         </article>
+        <!-- ...existing code... (fourth article with story and images) -->
         <article class="row justify-content-center align-items-center g-3 mb-4" style="--index: 3">
             <div class="col-12 article-info position-relative px-4" style="background: #fff; border-radius: 0.5rem;">
                 <!-- Vertical line (pseudo-element via CSS) -->
@@ -170,14 +220,17 @@
             </div>
         </article>
     </main>
+    <!-- Footer element (bottom section with contact info). -->
     <footer class="text-center py-2">
+        <!-- P elements (paragraphs with text and links). -->
         <p>🧵 A Quilting Creation 🪡 | 801-671-6344 |
             <a href="mailto:LongarmQuiltService@gmail.com" target="_blank">LongarmQuiltService@gmail.com</a>
         </p>
         <p>&copy; 2025 | Christi Dobbins | <a href="mailto:hopncode@gmail.com" target="_blank">hopncode@gmail.com</a>
         </p>
     </footer>
+    <!-- Script element (loads external JavaScript for Bootstrap). -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>>
+</html>
