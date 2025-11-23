@@ -37,6 +37,30 @@ function generateOrderId() {
     return `ORDER-${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}-${Math.floor(Math.random() * 9000 + 1000)}`;
 }
 
+// Initialize page: use server-provided window.__ITEMS__ when present,
+// otherwise fetch data/items.json (static pages). This ensures both the EJS view
+// and the static gallery.html populate correctly.
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        let items = window.__ITEMS__;
+        if (!items) {
+            const resp = await fetch('/data/items.json');
+            if (resp.ok) items = await resp.json(); else items = [];
+        }
+
+        // If the shop-row is empty (static page) render items using renderShop
+        const shopRow = document.getElementById('shop-row');
+        if (shopRow && shopRow.children.length === 0 && Array.isArray(items)) {
+            renderShop(items);
+        }
+
+        // Start with checkout buttons disabled
+        setOrderSlipButtons(false);
+    } catch (err) {
+        console.error('Failed to initialize gallery', err);
+    }
+});
+
 // setOrderSlipButtons is a function that takes enabled (boolean parameter).
 // document.getElementById is a method to find HTML elements.
 // .disabled is a property to enable/disable buttons.

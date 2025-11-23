@@ -79,10 +79,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 patternImage.alt = selectedPattern.name;
                 patternName.textContent = selectedPattern.name;
                 patternDesc.textContent = selectedPattern.description;
-                patternPrice.textContent =
-                    "Price: $" +
-                    (selectedPattern.price_per_sq_in || 0.035).toFixed(3) +
-                    " per sq in";
+                // Support multiple JSON key names for price (legacy or different sources)
+                const pricePerSq = selectedPattern.price_per_sq_in || selectedPattern.pricePerSquareInch || selectedPattern.pricePerSqIn || 0.035;
+                patternPrice.textContent = `Price: $${pricePerSq.toFixed(3)} per sq in`;
                 // .style.display is a property to show/hide elements.
                 // = assignment operator.
                 patternPreview.style.display = "block";
@@ -90,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Learning note: storing small state on DOM elements is okay for small projects,
                 // but in larger apps consider a central state object or framework.
                 // dataset is a property for custom data attributes.
-                patternPreview.dataset.price = selectedPattern.price_per_sq_in || 0.035;
+                patternPreview.dataset.price = pricePerSq;
                 // if statement with && (and) to check if calcResult exists.
                 if (calcResult) calcResult.textContent = "";
             } else {
