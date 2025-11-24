@@ -25,6 +25,23 @@ function formatPrice(price) {
     return `$${price.toFixed(2)}`;
 }
 
+// Attach change listeners to any .select-item checkboxes (works for server-rendered or JS-rendered)
+function attachSelectionListeners() {
+    document.querySelectorAll('.select-item').forEach(checkbox => {
+        if (checkbox.dataset.listenerAttached === 'true') return; // avoid duplicates
+        checkbox.addEventListener('change', () => {
+            const id = checkbox.value;
+            if (checkbox.checked) {
+                if (!selectedItems.includes(id)) selectedItems.push(id);
+            } else {
+                selectedItems = selectedItems.filter(itemId => itemId !== id);
+            }
+            setOrderSlipButtons(selectedItems.length > 0);
+        });
+        checkbox.dataset.listenerAttached = 'true';
+    });
+}
+
 // generateOrderId is another function with no parameters.
 // new Date() creates a date object (current time).
 // .getFullYear(), etc., are methods on date objects.
@@ -65,6 +82,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Start with checkout buttons disabled
         setOrderSlipButtons(false);
+        // Ensure checkboxes on server-rendered pages get listeners too
+        attachSelectionListeners();
     } catch (err) {
         console.error('Failed to initialize gallery', err);
     }
@@ -130,18 +149,8 @@ function renderShop(items) {
         card.addEventListener('mouseleave', () => card.classList.remove('shadow-lg', 'rise-up'));
     });
 
-    // Selection logic
-    document.querySelectorAll('.select-item').forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-            const id = checkbox.value;
-            if (checkbox.checked) {
-                if (!selectedItems.includes(id)) selectedItems.push(id);
-            } else {
-                selectedItems = selectedItems.filter(itemId => itemId !== id);
-            }
-            setOrderSlipButtons(selectedItems.length > 0);
-        });
-    });
+    // Selection logic for dynamically-rendered items — use a shared helper
+    attachSelectionListeners();
 }
 
 // showOrderSlip is a function that takes items (array).
