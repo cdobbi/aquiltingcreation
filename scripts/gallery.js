@@ -42,7 +42,15 @@ function generateOrderId() {
 // and the static gallery.html populate correctly.
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        let items = window.__ITEMS__;
+        // Try server-provided DOM JSON blob first (safer for editors), then window.__ITEMS__, then fetch
+        let items;
+        const initialEl = document.getElementById('initial-items');
+        if (initialEl) {
+            try { items = JSON.parse(initialEl.textContent || '[]'); } catch (e) { items = []; }
+        }
+
+        if (!items && window.__ITEMS__) items = window.__ITEMS__;
+
         if (!items) {
             const resp = await fetch('/data/items.json');
             if (resp.ok) items = await resp.json(); else items = [];
